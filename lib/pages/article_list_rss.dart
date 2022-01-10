@@ -5,17 +5,17 @@ import 'package:http/http.dart' as http;
 import 'package:tech_news_feed/widgets/article_tile.dart';
 import 'package:webfeed/webfeed.dart';
 
-class ArticleList extends StatefulWidget {
+class ArticleListRss extends StatefulWidget {
 
   String feedUrl;
 
-  ArticleList({Key? key,required this.feedUrl}) : super(key: key);
+  ArticleListRss({Key? key,required this.feedUrl}) : super(key: key);
 
   @override
-  _ArticleListState createState() => _ArticleListState();
+  _ArticleListRssState createState() => _ArticleListRssState();
 }
 
-class _ArticleListState extends State<ArticleList> {
+class _ArticleListRssState extends State<ArticleListRss> {
 
   List<RssItem> _articlesList = [];
   bool _loading = true;
@@ -37,7 +37,6 @@ class _ArticleListState extends State<ArticleList> {
     client.close();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,11 +48,11 @@ class _ArticleListState extends State<ArticleList> {
             onRefresh: getRssData,
             color: Theme.of(context).colorScheme.primary,
             child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 600),
+              duration: const Duration(milliseconds: 450),
               child: _loading
                   ? Center(
                 child: CircularProgressIndicator(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
                 ),
               )
                   : ListView(

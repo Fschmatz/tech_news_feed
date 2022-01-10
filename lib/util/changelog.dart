@@ -8,6 +8,7 @@ class Changelog{
 - Technically Usable
 - Small Fixes
 - Small UI Changes
+- Flutter Icons
 ''';
 
   static String changelogsOld = '''

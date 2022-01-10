@@ -6,9 +6,6 @@ class FeedsIcons {
   static const _kFontFam = 'FeedsIcons';
   static const String? _kFontPkg = null;
 
-  static const IconData plus_squared = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData plus_circle = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData verge = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ars = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
-
-
-

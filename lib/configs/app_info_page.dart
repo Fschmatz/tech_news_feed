@@ -6,7 +6,7 @@ class AppInfoPage extends StatelessWidget {
   const AppInfoPage({Key? key}) : super(key: key);
 
   _launchGithub()  {
-    const url = '';
+    const url = 'https://github.com/Fschmatz/tech_news_feed';
     launch(url);
   }
 
@@ -92,7 +92,7 @@ class AppInfoPage extends StatelessWidget {
           const ListTile(
             leading: Icon(Icons.messenger_outline),
             title: Text(
-              " ?? ",
+              "We're not in an information age anymore. We're in the information management age.",
               style: TextStyle(fontSize: 16),
             ),
           ),

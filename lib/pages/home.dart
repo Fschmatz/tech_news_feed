@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tech_news_feed/pages/article_list.dart';
+import 'package:tech_news_feed/pages/article_list_atom.dart';
+import 'package:tech_news_feed/pages/article_list_rss.dart';
+import 'package:tech_news_feed/util/feeds_icons.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,19 +13,19 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _articleList = [
-    ArticleList(
+    ArticleListRss(
       key: UniqueKey(),
       feedUrl: "http://feeds.arstechnica.com/arstechnica/index",
     ),
-    ArticleList(
+    ArticleListAtom(
       key: UniqueKey(),
       feedUrl: "https://www.theverge.com/rss/index.xml",
     ),
-    ArticleList(
+    ArticleListRss(
       key: UniqueKey(),
       feedUrl: "http://feeds.feedburner.com/meiobit",
     ),
-    ArticleList(
+    ArticleListRss(
       key: UniqueKey(),
       feedUrl: "https://www.androidpolice.com/feed/",
     ),
@@ -46,17 +48,19 @@ class _HomeState extends State<Home> {
             },
             destinations: const [
               NavigationDestination(
-                icon: Icon(Icons.rss_feed_outlined),
+                icon: Icon(FeedsIcons.ars, size: 35,),
                 selectedIcon: Icon(
-                  Icons.rss_feed,
+                  FeedsIcons.ars,
+                  size: 35,
                   color: Colors.black87,
                 ),
                 label: 'Ars Technica',
               ),
               NavigationDestination(
-                icon: Icon(Icons.rss_feed_outlined),
+                icon: Icon(FeedsIcons.verge,size: 15,),
                 selectedIcon: Icon(
-                  Icons.rss_feed,
+                  FeedsIcons.verge,
+                  size: 15,
                   color: Colors.black87,
                 ),
                 label: 'The Verge',
@@ -70,9 +74,9 @@ class _HomeState extends State<Home> {
                 label: 'Meio Bit',
               ),
               NavigationDestination(
-                icon: Icon(Icons.rss_feed_outlined),
+                icon: Icon(Icons.android_outlined),
                 selectedIcon: Icon(
-                  Icons.rss_feed,
+                  Icons.android,
                   color: Colors.black87,
                 ),
                 label: 'Android Police',
