@@ -7,11 +7,11 @@ ThemeData light = ThemeData(
     primaryColorBrightness: Brightness.dark,
     primaryColor: const Color(0xFFFFFFFF),
     scaffoldBackgroundColor: const Color(0xFFFFFFFF),
-    colorScheme: const ColorScheme.light(
-      background: Color(0xFFFFFFFF),
+    colorScheme: ColorScheme.light(
+      background: const Color(0xFFFFFFFF),
       primary: Colors.blueAccent,
       secondary: Colors.blueAccent,
-      secondaryVariant: Colors.blueAccent,
+      secondaryVariant: Colors.blueAccent.shade700,
     ),
     appBarTheme: const AppBarTheme(
         color: Color(0xFFFFFFFF),
@@ -47,12 +47,12 @@ ThemeData light = ThemeData(
             ),
             borderRadius: BorderRadius.circular(10.0))),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Color(0xFFEAEBEE),
+      backgroundColor: Color(0xFFEAEBEF),
       selectedItemColor: Colors.blueAccent,
     ),
-    bottomAppBarColor: const Color(0xFFEAEBEE),
+    bottomAppBarColor: const Color(0xFFEAEBEF),
     navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFFEAEBEE),
+        backgroundColor: const Color(0xFFEAEBEF),
         indicatorColor: Colors.blueAccent,
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFF050505),
@@ -72,7 +72,7 @@ ThemeData dark = ThemeData(
         background: Color(0xFF202124),
         primary: Color(0xFF7592CC),
         secondary: Color(0xFF7592CC),
-        secondaryVariant: Color(0xFF8BB6FF)),
+        secondaryVariant: Color(0xFF84acf0)),
     appBarTheme: const AppBarTheme(
         color: Color(0xFF202124),
         elevation: 0,
@@ -82,17 +82,17 @@ ThemeData dark = ThemeData(
             fontWeight: FontWeight.w600,
             color: Color(0xFFFFFFFF))),
     cardTheme: const CardTheme(
-      color: Color(0xFF25282E),
+      color: Color(0xFF282A2F),
     ),
     dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFF292828),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Color(0xFF16171A),
+      backgroundColor: Color(0xFF17181C),
     ),
-    bottomAppBarColor: const Color(0xFF16171A),
+    bottomAppBarColor: const Color(0xFF17181C),
     navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFF16171A),
+        backgroundColor: const Color(0xFF17181C),
         indicatorColor: const Color(0xFF7592CC),
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFFEAEAEA),
