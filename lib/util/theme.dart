@@ -22,7 +22,7 @@ ThemeData light = ThemeData(
             fontWeight: FontWeight.w600,
             color: Color(0xFF000000))),
     cardTheme: const CardTheme(
-      color: Color(0xFFF1F2F5),
+      color: Color(0xFFF1F2F7),
     ),
     dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFFFFFFFF),
@@ -72,7 +72,7 @@ ThemeData dark = ThemeData(
         background: Color(0xFF202124),
         primary: Color(0xFF7592CC),
         secondary: Color(0xFF7592CC),
-        secondaryVariant: Color(0xFF7592CC)),
+        secondaryVariant: Color(0xFF8BB6FF)),
     appBarTheme: const AppBarTheme(
         color: Color(0xFF202124),
         elevation: 0,
@@ -82,30 +82,11 @@ ThemeData dark = ThemeData(
             fontWeight: FontWeight.w600,
             color: Color(0xFFFFFFFF))),
     cardTheme: const CardTheme(
-      color: Color(0xFF2A2B2E),
+      color: Color(0xFF25282E),
     ),
     dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFF292828),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-        contentPadding:
-        const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Color(0xFF7592CC),
-          ),
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey.withOpacity(0.3),
-            ),
-            borderRadius: BorderRadius.circular(10.0)),
-        border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey.withOpacity(0.3),
-            ),
-            borderRadius: BorderRadius.circular(10.0))),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color(0xFF16171A),
     ),

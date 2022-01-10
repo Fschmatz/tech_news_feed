@@ -57,10 +57,10 @@ class _ArticleTileState extends State<ArticleTile> {
                           fontSize: 12.5,
                           fontWeight: FontWeight.w600,
                           color:
-                          Theme.of(context).colorScheme.primary.withOpacity(0.8)),
+                          Theme.of(context).colorScheme.secondaryVariant),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 55,
                     child: TextButton(
                       onPressed: () {
@@ -78,7 +78,7 @@ class _ArticleTileState extends State<ArticleTile> {
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         primary: Theme.of(context).cardTheme.color,
-                        onPrimary: Theme.of(context).colorScheme.primary,
+                        onPrimary: Theme.of(context).colorScheme.secondaryVariant,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
                         ),

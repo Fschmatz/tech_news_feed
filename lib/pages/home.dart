@@ -40,6 +40,7 @@ class _HomeState extends State<Home> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: NavigationBar(
+            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
             selectedIndex: _currentIndex,
             onDestinationSelected: (index) {
               setState(() {
