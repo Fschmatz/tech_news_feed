@@ -52,7 +52,7 @@ class _ArticleListRssState extends State<ArticleListRss> {
               child: _loading
                   ? Center(
                 child: CircularProgressIndicator(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               )
                   : ListView(
@@ -64,7 +64,7 @@ class _ArticleListRssState extends State<ArticleListRss> {
                           height: 0,
                         ),
                         shrinkWrap: true,
-                        itemCount: _articlesList.length,
+                        itemCount: _articlesList.length < 20 ?  _articlesList.length : 20,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 7),
