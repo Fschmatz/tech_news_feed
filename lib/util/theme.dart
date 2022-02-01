@@ -55,14 +55,14 @@ ThemeData dark = ThemeData(
       titleTextStyle: TextStyle(
           fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xFFFFFFFF))),
   cardTheme: const CardTheme(
-    color: Color(0xFF2A2C30),
+    color: Color(0xFF2A2C31),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Color(0xFF151619),
+    backgroundColor: Color(0xFF15161A),
   ),
-  bottomAppBarColor: const Color(0xFF151619),
+  bottomAppBarColor: const Color(0xFF15161A),
   navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: const Color(0xFF151619),
+      backgroundColor: const Color(0xFF15161A),
       indicatorColor: const Color(0xFF7592CC),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFFEAEAEA),

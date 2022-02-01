@@ -61,14 +61,14 @@ class _ArticleTileState extends State<ArticleTile> {
                     ),
                   ),
                   SizedBox(
-                    width: 55,
+
                     child: TextButton(
                       onPressed: () {
                         Share.share(widget.feed.link!);
                       },
                       child: Icon(
                         Icons.share_outlined,
-                        size: 18.0,
+                        size: 20,
                         color: Theme.of(context)
                             .textTheme
                             .headline6!

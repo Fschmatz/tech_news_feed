@@ -21,14 +21,19 @@ class _HomeState extends State<Home> {
       key: UniqueKey(),
       feedUrl: "https://www.theverge.com/rss/index.xml",
     ),
+    ArticleListAtom(
+      key: UniqueKey(),
+      feedUrl: "https://daringfireball.net/feeds/main",
+    ),
     ArticleListRss(
       key: UniqueKey(),
       feedUrl: "http://feeds.feedburner.com/meiobit",
     ),
-    ArticleListRss(
+
+    /*ArticleListRss(
       key: UniqueKey(),
       feedUrl: "https://www.androidpolice.com/feed/",
-    ),
+    ),*/
   ];
 
   @override
@@ -67,20 +72,20 @@ class _HomeState extends State<Home> {
                 label: 'The Verge',
               ),
               NavigationDestination(
-                icon: Icon(Icons.rss_feed_outlined),
+                icon: Icon(Icons.local_fire_department_outlined),
                 selectedIcon: Icon(
-                  Icons.rss_feed,
+                  Icons.local_fire_department_rounded,
+                  color: Colors.black87,
+                ),
+                label: 'Daring Fireball',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.memory_outlined),
+                selectedIcon: Icon(
+                  Icons.memory,
                   color: Colors.black87,
                 ),
                 label: 'Meio Bit',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.android_outlined),
-                selectedIcon: Icon(
-                  Icons.android,
-                  color: Colors.black87,
-                ),
-                label: 'Android Police',
               ),
             ],
           ),
