@@ -4,14 +4,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 //CLARO
 ThemeData light = ThemeData(
   brightness: Brightness.light,
-  primaryColorBrightness: Brightness.dark,
   primaryColor: const Color(0xFFFFFFFF),
   scaffoldBackgroundColor: const Color(0xFFFFFFFF),
   colorScheme: ColorScheme.light(
     background: const Color(0xFFFFFFFF),
     primary: Colors.blueAccent.shade400,
     secondary: Colors.blueAccent.shade400,
-    secondaryVariant: Colors.blueAccent.shade700,
+  ),
+  dialogTheme: const DialogTheme(
+    backgroundColor: Color(0xFFFFFFFF),
   ),
   appBarTheme: const AppBarTheme(
       color: Color(0xFFFFFFFF),
@@ -20,7 +21,7 @@ ThemeData light = ThemeData(
       titleTextStyle: TextStyle(
           fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xFF000000))),
   cardTheme: const CardTheme(
-    color: Color(0xFFF1F2F5),
+    color: Color(0xFFF0F1F4),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFFEAEBEF),
@@ -40,22 +41,24 @@ ThemeData light = ThemeData(
 //ESCURO
 ThemeData dark = ThemeData(
   brightness: Brightness.dark,
-  primaryColorBrightness: Brightness.light,
-  primaryColor: const Color(0xFF202124),
-  scaffoldBackgroundColor: const Color(0xFF202124),
+  primaryColor: const Color(0xFF202126),
+  scaffoldBackgroundColor: const Color(0xFF202126),
   colorScheme: const ColorScheme.dark(
-      background: Color(0xFF202124),
+      background: Color(0xFF202126),
       primary: Color(0xFF8BA7DE),
       secondary: Color(0xFF8BA7DE),
-      secondaryVariant: Color(0xFF84acf0)),
+  ),
   appBarTheme: const AppBarTheme(
-      color: Color(0xFF202124),
+      color: Color(0xFF202126),
       elevation: 0,
       iconTheme: IconThemeData(color: Color(0xFFF5F5F5)),
       titleTextStyle: TextStyle(
           fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xFFFFFFFF))),
   cardTheme: const CardTheme(
     color: Color(0xFF2A2C31),
+  ),
+  dialogTheme: const DialogTheme(
+    backgroundColor: Color(0xFF202126),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFF15161A),

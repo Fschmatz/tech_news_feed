@@ -1,18 +1,22 @@
 class Changelog{
 
-  static String appVersion = "1.0.2";
+  static String appVersion = "1.1.0";
   static String appName = "Tech News Feed Fschmatz";
 
   static String changelogCurrent = '''  
+1.1.0
+- Added System Theme
+- Small Fixes
+''';
+
+  static String changelogsOld = '''
 1.0.2
 - Technically Usable
 - Small Fixes
 - Small UI Changes
 - Changed Feeds
 - Flutter Icons
-''';
 
-  static String changelogsOld = '''
 0.0.4
 - Added Feeds
 

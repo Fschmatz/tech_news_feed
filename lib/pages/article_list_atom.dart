@@ -62,7 +62,7 @@ class _ArticleListAtomState extends State<ArticleListAtom> {
                                 height: 0,
                               ),
                           shrinkWrap: true,
-                          itemCount:  _articlesList.length < 20 ?  _articlesList.length : 20,
+                          itemCount:  _articlesList.take(25).length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 7),

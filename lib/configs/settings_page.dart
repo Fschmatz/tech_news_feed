@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:tech_news_feed/util/changelog.dart';
-import 'package:tech_news_feed/util/theme.dart';
+import '../util/dialog_select_theme.dart';
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'app_info_page.dart';
 import 'changelog_page.dart';
 
@@ -13,9 +13,16 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  @override
-  void initState() {
-    super.initState();
+
+  String getThemeStringFormatted() {
+    String theme = EasyDynamicTheme.of(context)
+        .themeMode
+        .toString()
+        .replaceAll('ThemeMode.', '');
+    if (theme == 'system') {
+      theme = 'system default';
+    }
+    return theme.replaceFirst(theme[0], theme[0].toUpperCase());
   }
 
   @override
@@ -43,6 +50,32 @@ class _SettingsPageState extends State<SettingsPage> {
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 17.5, color: Colors.black),
                 ),
+              ),
+            ),
+            const Divider(),
+            ListTile(
+              leading: const SizedBox(height: 0.1,),
+              title:    Text(
+                  "General".toUpperCase(),
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: themeColorApp)
+              ),
+            ),
+            ListTile(
+              onTap: () => showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const DialogSelectTheme();
+                  }),
+              leading: const Icon(Icons.brightness_6_outlined),
+              title: const Text(
+                "App Theme",
+                style: TextStyle(fontSize: 16),
+              ),
+              subtitle: Text(
+                getThemeStringFormatted(),
               ),
             ),
             const Divider(),
@@ -92,30 +125,6 @@ class _SettingsPageState extends State<SettingsPage> {
                       fullscreenDialog: true,
                     ));
               },
-            ),
-            const Divider(),
-            ListTile(
-              leading: const SizedBox(height: 0.1,),
-              title:    Text(
-                  "General".toUpperCase(),
-                  style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: themeColorApp)
-              ),
-            ),
-            Consumer<ThemeNotifier>(
-              builder: (context, notifier, child) => SwitchListTile(
-                  title: const Text(
-                    "Dark Theme",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  secondary: const Icon(Icons.brightness_6_outlined),
-                  activeColor: Colors.blue,
-                  value: notifier.darkTheme,
-                  onChanged: (value) {
-                    notifier.toggleTheme();
-                  }),
             ),
           ],
         ));
