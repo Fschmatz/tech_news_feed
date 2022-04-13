@@ -27,7 +27,7 @@ class _ArticleTileState extends State<ArticleTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.fromLTRB(16, widget.index == 0 ? 0 : 8, 16, 8),
+      contentPadding: EdgeInsets.fromLTRB(16, widget.index == 0 ? 0 : 10, 16, 10),
       onTap: () {
         _launchBrowser(widget.feed.link!);
       },
@@ -45,7 +45,7 @@ class _ArticleTileState extends State<ArticleTile> {
             fontSize: 12,
             fontWeight: FontWeight.w500,
             color:
-            Theme.of(context).colorScheme.secondary),
+            Theme.of(context).colorScheme.secondary.withOpacity(0.9)),
       ),
     );
   }
