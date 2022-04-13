@@ -66,15 +66,13 @@ class _ArticleListRssState extends State<ArticleListRss> {
                         shrinkWrap: true,
                         itemCount: _articlesList.take(25).length,
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 7),
-                            child: ArticleTile(
-                              feed: Feed(
-                                link: _articlesList[index].link,
-                                  title: _articlesList[index].title!,
-                                  data: _articlesList[index].pubDate.toString(),
-                              ),
+                          return ArticleTile(
+                            feed: Feed(
+                              link: _articlesList[index].link,
+                                title: _articlesList[index].title!,
+                                data: _articlesList[index].pubDate.toString(),
                             ),
+                            index: index,
                           );
                         }
                         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_news_feed/util/changelog.dart';
+import 'package:tech_news_feed/util/app_details.dart';
 import '../util/dialog_select_theme.dart';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'app_info_page.dart';
@@ -13,7 +13,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-
   String getThemeStringFormatted() {
     String theme = EasyDynamicTheme.of(context)
         .themeMode
@@ -27,13 +26,11 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-
     Color themeColorApp = Theme.of(context).colorScheme.primary;
 
     return Scaffold(
         appBar: AppBar(
           title: const Text("Settings"),
-          elevation: 0,
         ),
         body: ListView(
           children: <Widget>[
@@ -46,22 +43,18 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               child: ListTile(
                 title: Text(
-                  Changelog.appName + " " + Changelog.appVersion,
+                  AppDetails.appName + " " + AppDetails.appVersion,
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 17.5, color: Colors.black),
                 ),
               ),
             ),
-            const Divider(),
             ListTile(
-              leading: const SizedBox(height: 0.1,),
-              title:    Text(
-                  "General".toUpperCase(),
+              title: Text("General",
                   style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: themeColorApp)
-              ),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: themeColorApp)),
             ),
             ListTile(
               onTap: () => showDialog(
@@ -72,22 +65,17 @@ class _SettingsPageState extends State<SettingsPage> {
               leading: const Icon(Icons.brightness_6_outlined),
               title: const Text(
                 "App Theme",
-                style: TextStyle(fontSize: 16),
               ),
               subtitle: Text(
                 getThemeStringFormatted(),
               ),
             ),
-            const Divider(),
             ListTile(
-              leading: const SizedBox(height: 0.1,),
-              title:    Text(
-                  "About".toUpperCase(),
+              title: Text("About",
                   style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: themeColorApp)
-              ),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: themeColorApp)),
             ),
             ListTile(
               leading: const Icon(
@@ -95,7 +83,6 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               title: const Text(
                 "App Info",
-                style: TextStyle(fontSize: 16),
               ),
               onTap: () {
                 Navigator.push(
@@ -106,16 +93,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     ));
               },
             ),
-            const SizedBox(
-              height: 10.0,
-            ),
             ListTile(
               leading: const Icon(
                 Icons.article_outlined,
               ),
               title: const Text(
                 "Changelog",
-                style: TextStyle(fontSize: 16),
               ),
               onTap: () {
                 Navigator.push(

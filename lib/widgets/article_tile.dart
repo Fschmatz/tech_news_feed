@@ -8,8 +8,9 @@ class ArticleTile extends StatefulWidget {
   _ArticleTileState createState() => _ArticleTileState();
 
   Feed feed;
+  int index;
 
-  ArticleTile({Key? key, required this.feed}) : super(key: key);
+  ArticleTile({Key? key, required this.feed, required this.index}) : super(key: key);
 }
 
 class _ArticleTileState extends State<ArticleTile> {
@@ -25,71 +26,26 @@ class _ArticleTileState extends State<ArticleTile> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return ListTile(
+      contentPadding: EdgeInsets.fromLTRB(16, widget.index == 0 ? 0 : 8, 16, 8),
       onTap: () {
         _launchBrowser(widget.feed.link!);
       },
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 10, 16, 6),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: Text(
-                    widget.feed.title!,
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 4, 0, 0),
-                    child: Text(
-                      widget.feed.formattedDate,
-                      style: TextStyle(
-                          fontSize: 12.5,
-                          fontWeight: FontWeight.w600,
-                          color:
-                          Theme.of(context).colorScheme.secondary),
-                    ),
-                  ),
-                  SizedBox(
-
-                    child: TextButton(
-                      onPressed: () {
-                        Share.share(widget.feed.link!);
-                      },
-                      child: Icon(
-                        Icons.share_outlined,
-                        size: 20,
-                        color: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .color!
-                            .withOpacity(0.7),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        primary: Theme.of(context).cardTheme.color,
-                        onPrimary: Theme.of(context).colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+      onLongPress:() {
+        Share.share(widget.feed.link!);
+      },
+      title: Text(
+        widget.feed.title!,
+        style: const TextStyle(fontSize: 16),
+      ),
+      subtitle: Text(
+        widget.feed.formattedDate,
+        textAlign: TextAlign.end,
+        style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color:
+            Theme.of(context).colorScheme.secondary),
       ),
     );
   }
