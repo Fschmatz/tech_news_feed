@@ -4,7 +4,6 @@ import 'package:web_scraper/web_scraper.dart';
 import '../classes/feed.dart';
 import '../widgets/app_bar_sliver.dart';
 import '../widgets/article_tile.dart';
-import '../widgets/promo_tile_hm.dart';
 
 class XdaScraper extends StatefulWidget {
   const XdaScraper({Key? key}) : super(key: key);
@@ -41,9 +40,6 @@ class _XdaScraperState extends State<XdaScraper> {
               ' div > div > div.block-body > div > div.structItem.structItem'
               ' > div.structItem-cell.structItem-cell--main > div.structItem-title > a',
           ['href']);
-
-      print(_linkList);
-      print(_linkList[0]['href'].toString().trim());
 
       setState(() {
         _titleList;

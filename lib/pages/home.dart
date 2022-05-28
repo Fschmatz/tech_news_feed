@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tech_news_feed/pages/article_list_atom.dart';
 import 'package:tech_news_feed/pages/article_list_rss.dart';
-import 'package:tech_news_feed/pages/web_scraper_xda.dart';
+import 'package:tech_news_feed/pages/xda_scraper.dart';
 import 'package:tech_news_feed/util/feeds_icons.dart';
 import 'package:tech_news_feed/util/reddit_icons.dart';
 
