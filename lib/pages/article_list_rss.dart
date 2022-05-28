@@ -72,7 +72,6 @@ class _ArticleListRssState extends State<ArticleListRss> {
                                 title: _articlesList[index].title!,
                                 data: _articlesList[index].pubDate.toString(),
                             ),
-                            index: index,
                           );
                         }
                         ),

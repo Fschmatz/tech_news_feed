@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tech_news_feed/pages/article_list_atom.dart';
 import 'package:tech_news_feed/pages/article_list_rss.dart';
+import 'package:tech_news_feed/pages/web_scraper_xda.dart';
 import 'package:tech_news_feed/util/feeds_icons.dart';
+import 'package:tech_news_feed/util/reddit_icons.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,7 +19,19 @@ class _HomeState extends State<Home> {
       key: UniqueKey(),
       feedUrl: "http://feeds.arstechnica.com/arstechnica/index",
     ),
+    XdaScraper(
+      key: UniqueKey(),
+    ),
     ArticleListAtom(
+      key: UniqueKey(),
+      feedUrl: "https://www.reddit.com/r/technology/.rss?sort=new",
+    ),
+    ArticleListRss(
+      key: UniqueKey(),
+      feedUrl: "http://feeds.feedburner.com/meiobit",
+    ),
+
+    /*ArticleListAtom(
       key: UniqueKey(),
       feedUrl: "https://www.theverge.com/rss/index.xml",
     ),
@@ -26,11 +40,6 @@ class _HomeState extends State<Home> {
       feedUrl: "https://daringfireball.net/feeds/main",
     ),
     ArticleListRss(
-      key: UniqueKey(),
-      feedUrl: "http://feeds.feedburner.com/meiobit",
-    ),
-
-    /*ArticleListRss(
       key: UniqueKey(),
       feedUrl: "https://www.androidpolice.com/feed/",
     ),*/
@@ -54,36 +63,35 @@ class _HomeState extends State<Home> {
             },
             destinations: const [
               NavigationDestination(
-                icon: Icon(FeedsIcons.ars, size: 35,),
+                icon: Icon(FeedsIcons.ars, size: 38,),
                 selectedIcon: Icon(
                   FeedsIcons.ars,
-                  size: 35,
-                  color: Colors.black87,
+                  size: 38,
                 ),
                 label: 'Ars Technica',
               ),
               NavigationDestination(
-                icon: Icon(FeedsIcons.verge,size: 15,),
+                icon: Icon(Icons.forum_outlined),
                 selectedIcon: Icon(
-                  FeedsIcons.verge,
-                  size: 15,
-                  color: Colors.black87,
+                  Icons.forum,
                 ),
-                label: 'The Verge',
+                label: 'XDA Forums',
               ),
               NavigationDestination(
-                icon: Icon(Icons.local_fire_department_outlined),
-                selectedIcon: Icon(
-                  Icons.local_fire_department_rounded,
-                  color: Colors.black87,
+                icon: Icon(
+                  RedditIcons.reddit_alien,
+                  size: 22,
                 ),
-                label: 'Daring Fireball',
+                selectedIcon: Icon(
+                  RedditIcons.reddit_alien,
+                  size: 22,
+                ),
+                label: 'r/technology',
               ),
               NavigationDestination(
                 icon: Icon(Icons.memory_outlined),
                 selectedIcon: Icon(
                   Icons.memory,
-                  color: Colors.black87,
                 ),
                 label: 'Meio Bit',
               ),

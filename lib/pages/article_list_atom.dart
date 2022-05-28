@@ -70,7 +70,6 @@ class _ArticleListAtomState extends State<ArticleListAtom> {
                                 title: _articlesList[index].title!,
                                 data: _articlesList[index].published!,
                               ),
-                              index: index,
                             );
                           }),
                       const SizedBox(

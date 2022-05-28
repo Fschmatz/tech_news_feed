@@ -8,14 +8,11 @@ class ArticleTile extends StatefulWidget {
   _ArticleTileState createState() => _ArticleTileState();
 
   Feed feed;
-  int index;
 
-  ArticleTile({Key? key, required this.feed, required this.index}) : super(key: key);
+  ArticleTile({Key? key, required this.feed}) : super(key: key);
 }
 
 class _ArticleTileState extends State<ArticleTile> {
-
-
   _launchBrowser(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -27,26 +24,27 @@ class _ArticleTileState extends State<ArticleTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.fromLTRB(16, widget.index == 0 ? 0 : 10, 16, 10),
+      minVerticalPadding: 10,
       onTap: () {
         _launchBrowser(widget.feed.link!);
       },
-      onLongPress:() {
+      onLongPress: () {
         Share.share(widget.feed.link!);
       },
       title: Text(
         widget.feed.title!,
-        style: const TextStyle(fontSize: 16),
       ),
-      subtitle: Text(
-        widget.feed.formattedDate,
-        textAlign: TextAlign.end,
-        style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-            color:
-            Theme.of(context).colorScheme.secondary.withOpacity(0.9)),
-      ),
+      subtitle: widget.feed.data!.isNotEmpty
+          ? Text(
+              widget.feed.formattedDate,
+              textAlign: TextAlign.end,
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.secondary,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          : null,
     );
   }
 }

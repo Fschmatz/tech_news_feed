@@ -1,18 +1,25 @@
 class AppDetails{
 
-  static String appVersion = "1.1.1";
+  static String appVersion = "1.2.0";
   static String appName = "Tech News Feed Fschmatz";
   static String repositoryLink = "https://github.com/Fschmatz/tech_news_feed";
 
-  static String changelogCurrent = '''  
+  static String changelogCurrent = ''' 
+1.2.0
+- Added r/technology
+- Added XDA Forums What's New Scrapper
+- Removed The Verge
+- Removed Daring Fireball
+- UI Changes
+''';
+
+  static String changelogsOld = '''
 1.1.1
 - Added System Theme
 - Hold to Share
 - UI Changes
 - Small Fixes
-''';
 
-  static String changelogsOld = '''
 1.0.2
 - Technically Usable
 - Small Fixes

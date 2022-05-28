@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 ThemeData light = ThemeData(
+  useMaterial3: true,
+  textTheme: const TextTheme(
+    titleMedium: TextStyle(fontWeight: FontWeight.w400),
+  ),
   brightness: Brightness.light,
   primaryColor: const Color(0xFFFFFFFF),
   scaffoldBackgroundColor: const Color(0xFFFFFFFF),
@@ -40,7 +44,11 @@ ThemeData light = ThemeData(
           color: Color(0xFF050505), fontWeight: FontWeight.w500))),
 );
 
-ThemeData dark = ThemeData(
+ThemeData dark = ThemeData(  
+  useMaterial3: true,
+  textTheme: const TextTheme(
+    titleMedium: TextStyle(fontWeight: FontWeight.w400),
+  ),
   brightness: Brightness.dark,
   primaryColor: const Color(0xFF202124),
   scaffoldBackgroundColor: const Color(0xFF202124),
@@ -60,22 +68,22 @@ ThemeData dark = ThemeData(
     color: Color(0xFF2A2C31),
   ),
   dialogTheme: const DialogTheme(
-    backgroundColor: Color(0xFF202124),
+    backgroundColor: Color(0xFF28292D),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(28)),
     ),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Color(0xFF28292F),
+    backgroundColor: Color(0xFF28292D),
   ),
-  bottomAppBarColor: const Color(0xFF28292F),
+  bottomAppBarColor: const Color(0xFF28292D),
   navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: const Color(0xFF28292F),
-      indicatorColor: const Color(0xFF7592CC),
+      backgroundColor: const Color(0xFF28292D),
+      indicatorColor: const Color(0xFF475F91),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
-        color: Color(0xFFEAEAEA),
+        color: Color(0xFFEAEAEF),
       )),
       labelTextStyle: MaterialStateProperty.all(const TextStyle(
-          color: Color(0xFFEAEAEA), fontWeight: FontWeight.w500))),
+          color: Color(0xFFEAEAEF), fontWeight: FontWeight.w500))),
 );
 

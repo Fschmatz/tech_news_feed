@@ -8,4 +8,5 @@ class FeedsIcons {
 
   static const IconData verge = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData ars = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData reddit_alien = IconData(0xf281, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
