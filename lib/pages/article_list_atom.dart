@@ -58,9 +58,7 @@ class _ArticleListAtomState extends State<ArticleListAtom> {
                   children: [
                       ListView.separated(
                           physics: const NeverScrollableScrollPhysics(),
-                          separatorBuilder: (context, index) => const SizedBox(
-                                height: 0,
-                              ),
+                          separatorBuilder: (context, index) => const Divider(),
                           shrinkWrap: true,
                           itemCount:  _articlesList.take(25).length,
                           itemBuilder: (context, index) {

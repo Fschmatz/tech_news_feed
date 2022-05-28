@@ -13,18 +13,18 @@ class ArticleTile extends StatefulWidget {
 }
 
 class _ArticleTileState extends State<ArticleTile> {
-  _launchBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Error';
-    }
+
+  _launchBrowser(String url) {
+    launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      minVerticalPadding: 10,
+      minVerticalPadding: 5,
       onTap: () {
         _launchBrowser(widget.feed.link!);
       },
@@ -34,7 +34,7 @@ class _ArticleTileState extends State<ArticleTile> {
       title: Text(
         widget.feed.title!,
       ),
-      subtitle: widget.feed.data!.isNotEmpty
+     /* subtitle: widget.feed.data!.isNotEmpty
           ? Text(
               widget.feed.formattedDate,
               textAlign: TextAlign.end,
@@ -44,7 +44,7 @@ class _ArticleTileState extends State<ArticleTile> {
                 fontWeight: FontWeight.w500,
               ),
             )
-          : null,
+          : null,*/
     );
   }
 }

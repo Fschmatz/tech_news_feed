@@ -83,8 +83,9 @@ class _XdaScraperState extends State<XdaScraper> {
                   child: ListView(
                       physics: const AlwaysScrollableScrollPhysics(),
                       children: [
-                        ListView.builder(
+                        ListView.separated(
                           physics: const NeverScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) => const Divider(),
                           shrinkWrap: true,
                           itemCount: _titleList.length,
                           itemBuilder: (context, index) {
