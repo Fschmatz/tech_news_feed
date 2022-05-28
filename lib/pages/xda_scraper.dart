@@ -19,6 +19,7 @@ class _XdaScraperState extends State<XdaScraper> {
   String linkUrl = 'https://forum.xda-developers.com/';
   List<Map<String, dynamic>> _titleList = [];
   List<Map<String, dynamic>> _linkList = [];
+  List<Map<String, dynamic>> _forumNameList = [];
 
   @override
   void initState() {
@@ -41,9 +42,15 @@ class _XdaScraperState extends State<XdaScraper> {
               ' > div.structItem-cell.structItem-cell--main > div.structItem-title > a',
           ['href']);
 
+      _forumNameList = webScraper.getElement(
+          '#top > div.p-body > div.p-body-inner > div > div.p-body-main > div > div.p-body-pageContent '
+           '> div > div > div.block-body > div > div.structItem.structItem > div.structItem-cell.structItem-cell--main '
+              '> div.structItem-minor > ul > li:nth-child(5) > a',
+          ['title']);
+
+      print(_forumNameList);
+
       setState(() {
-        _titleList;
-        _linkList;
         _loading = false;
       });
     } else {
@@ -96,6 +103,7 @@ class _XdaScraperState extends State<XdaScraper> {
                                   title: _titleList[index]['title'],
                                   link: linkUrl +
                                       _linkList[index]['attributes']['href'],
+                                  forumNameXda: _forumNameList[index]['title']
                               ),//
                             );
                           },

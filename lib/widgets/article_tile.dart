@@ -13,7 +13,6 @@ class ArticleTile extends StatefulWidget {
 }
 
 class _ArticleTileState extends State<ArticleTile> {
-
   _launchBrowser(String url) {
     launchUrl(
       Uri.parse(url),
@@ -24,27 +23,32 @@ class _ArticleTileState extends State<ArticleTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      minVerticalPadding: 5,
       onTap: () {
-        _launchBrowser(widget.feed.link!);
+        _launchBrowser(widget.feed.link);
       },
       onLongPress: () {
-        Share.share(widget.feed.link!);
+        Share.share(widget.feed.link);
       },
       title: Text(
-        widget.feed.title!,
+        widget.feed.title,
       ),
-     /* subtitle: widget.feed.data!.isNotEmpty
+      subtitle: widget.feed.data.isNotEmpty
           ? Text(
               widget.feed.formattedDate,
-              textAlign: TextAlign.end,
               style: TextStyle(
                 fontSize: 12,
                 color: Theme.of(context).colorScheme.secondary,
                 fontWeight: FontWeight.w500,
               ),
             )
-          : null,*/
+          : Text(
+              widget.feed.forumNameXda!,
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.secondary,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
     );
   }
 }

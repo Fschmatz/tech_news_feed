@@ -28,8 +28,8 @@ class _ArticleListAtomState extends State<ArticleListAtom> {
     var client = http.Client();
     var response = await client.get(Uri.parse(widget.feedUrl));
     var channel = AtomFeed.parse(response.body);
+    _articlesList = channel.items!.toList();
     setState(() {
-      _articlesList = channel.items!.toList();
       _loading = false;
     });
     client.close();
@@ -58,9 +58,8 @@ class _ArticleListAtomState extends State<ArticleListAtom> {
                   children: [
                       ListView.separated(
                           physics: const NeverScrollableScrollPhysics(),
-                          separatorBuilder: (context, index) => const Divider(),
-                          shrinkWrap: true,
-                          itemCount:  _articlesList.take(25).length,
+                          separatorBuilder: (context, index) => const Divider(),                          shrinkWrap: true,
+                          itemCount:  _articlesList.length,
                           itemBuilder: (context, index) {
                             return ArticleTile(
                               feed: Feed(
