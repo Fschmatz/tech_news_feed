@@ -48,8 +48,6 @@ class _XdaScraperState extends State<XdaScraper> {
               '> div.structItem-minor > ul > li:nth-child(5) > a',
           ['title']);
 
-      print(_forumNameList);
-
       setState(() {
         _loading = false;
       });
