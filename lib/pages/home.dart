@@ -49,55 +49,49 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _articleList[_currentIndex],
-      bottomNavigationBar: Container(
-        color: Theme.of(context).navigationBarTheme.backgroundColor,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: NavigationBar(
-            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-            selectedIndex: _currentIndex,
-            onDestinationSelected: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            destinations: const [
-              NavigationDestination(
-                icon: Icon(FeedsIcons.ars, size: 38,),
-                selectedIcon: Icon(
-                  FeedsIcons.ars,
-                  size: 38,
-                ),
-                label: 'Ars Technica',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.forum_outlined),
-                selectedIcon: Icon(
-                  Icons.forum,
-                ),
-                label: 'XDA Forums',
-              ),
-              NavigationDestination(
-                icon: Icon(
-                  RedditIcons.reddit_alien,
-                  size: 22,
-                ),
-                selectedIcon: Icon(
-                  RedditIcons.reddit_alien,
-                  size: 22,
-                ),
-                label: 'r/technology',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.memory_outlined),
-                selectedIcon: Icon(
-                  Icons.memory,
-                ),
-                label: 'Meio Bit',
-              ),
-            ],
+      bottomNavigationBar: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(FeedsIcons.ars, size: 38,),
+            selectedIcon: Icon(
+              FeedsIcons.ars,
+              size: 38,
+            ),
+            label: 'Ars Technica',
           ),
-        ),
+          NavigationDestination(
+            icon: Icon(Icons.forum_outlined),
+            selectedIcon: Icon(
+              Icons.forum,
+            ),
+            label: 'XDA Forums',
+          ),
+          NavigationDestination(
+            icon: Icon(
+              RedditIcons.reddit_alien,
+              size: 22,
+            ),
+            selectedIcon: Icon(
+              RedditIcons.reddit_alien,
+              size: 22,
+            ),
+            label: 'r/technology',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.memory_outlined),
+            selectedIcon: Icon(
+              Icons.memory,
+            ),
+            label: 'Meio Bit',
+          ),
+        ],
       ),
     );
   }
