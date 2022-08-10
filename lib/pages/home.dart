@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tech_news_feed/pages/article_list_atom.dart';
 import 'package:tech_news_feed/pages/article_list_rss.dart';
-import 'package:tech_news_feed/pages/xda_scraper.dart';
+import 'package:tech_news_feed/pages/xda_forum_scraper.dart';
+import 'package:tech_news_feed/pages/xda_new_posts_scraper.dart';
 import 'package:tech_news_feed/util/feeds_icons.dart';
 import 'package:tech_news_feed/util/reddit_icons.dart';
 
@@ -19,19 +20,23 @@ class _HomeState extends State<Home> {
       key: UniqueKey(),
       feedUrl: "http://feeds.arstechnica.com/arstechnica/index",
     ),
-    XdaScraper(
+    XdaNewPostsScraper(
       key: UniqueKey(),
     ),
-    ArticleListAtom(
+    XdaForumScraper(
       key: UniqueKey(),
-      feedUrl: "https://www.reddit.com/r/technology/.rss?sort=new",
     ),
     ArticleListRss(
       key: UniqueKey(),
       feedUrl: "http://feeds.feedburner.com/meiobit",
     ),
 
-    /*ArticleListAtom(
+    /*
+     ArticleListAtom(
+      key: UniqueKey(),
+      feedUrl: "https://www.reddit.com/r/technology/.rss?sort=new",
+    ),
+    ArticleListAtom(
       key: UniqueKey(),
       feedUrl: "https://www.theverge.com/rss/index.xml",
     ),
@@ -64,7 +69,7 @@ class _HomeState extends State<Home> {
               FeedsIcons.ars,
               size: 38,
             ),
-            label: 'Ars Technica',
+            label: 'Ars Tech',
           ),
           NavigationDestination(
             icon: Icon(Icons.forum_outlined),
@@ -74,15 +79,11 @@ class _HomeState extends State<Home> {
             label: 'XDA Forums',
           ),
           NavigationDestination(
-            icon: Icon(
-              RedditIcons.reddit_alien,
-              size: 22,
-            ),
+            icon: Icon(Icons.phone_android_outlined),
             selectedIcon: Icon(
-              RedditIcons.reddit_alien,
-              size: 22,
+              Icons.phone_android,
             ),
-            label: 'r/technology',
+            label: 'XDA Poco F3',
           ),
           NavigationDestination(
             icon: Icon(Icons.memory_outlined),

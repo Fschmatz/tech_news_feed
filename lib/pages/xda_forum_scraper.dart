@@ -5,21 +5,20 @@ import '../classes/feed.dart';
 import '../widgets/app_bar_sliver.dart';
 import '../widgets/article_tile.dart';
 
-class XdaScraper extends StatefulWidget {
-  const XdaScraper({Key? key}) : super(key: key);
+class XdaForumScraper extends StatefulWidget {
+  const XdaForumScraper({Key? key}) : super(key: key);
 
   @override
-  _XdaScraperState createState() => _XdaScraperState();
+  _XdaForumScraperState createState() => _XdaForumScraperState();
 }
 
-class _XdaScraperState extends State<XdaScraper> {
+class _XdaForumScraperState extends State<XdaForumScraper> {
   String mainUrl = 'https://forum.xda-developers.com';
-  String sectionUrl = '/whats-new/';
+  String sectionUrl = '/f/xiaomi-poco-f3-xiaomi-mi-11x-redmi-k40.12161/';
   bool _loading = true;
-  String linkUrl = 'https://forum.xda-developers.com/';
   List<Map<String, dynamic>> _titleList = [];
   List<Map<String, dynamic>> _linkList = [];
-  List<Map<String, dynamic>> _forumNameList = [];
+  List<Map<String, dynamic>> _postTypeList = [];
 
   @override
   void initState() {
@@ -31,21 +30,21 @@ class _XdaScraperState extends State<XdaScraper> {
     final webScraper = WebScraper(mainUrl);
     if (await webScraper.loadWebPage(sectionUrl)) {
       _titleList = webScraper.getElement(
-          '#top > div.p-body > div.p-body-inner > div > div.p-body-main > div > div.p-body-pageContent >'
-          ' div > div > div.block-body > div > div.structItem.structItem'
-          ' > div.structItem-cell.structItem-cell--main > div.structItem-title > a',
+          'div.p-body > div.p-body-inner > div > div.p-body-main > div > div.p-body-pageContent >'
+          ' div > div.block-container > div.block-body > div.structItemContainer > div.structItemContainer-group > div.structItem.structItem'
+          ' > div.structItem-cell.structItem-cell--main > div.structItem-title > a:nth-child(3)',
           ['title']);
 
       _linkList = webScraper.getElement(
-          '#top > div.p-body > div.p-body-inner > div > div.p-body-main > div > div.p-body-pageContent >'
-              ' div > div > div.block-body > div > div.structItem.structItem'
-              ' > div.structItem-cell.structItem-cell--main > div.structItem-title > a',
+          'div.p-body > div.p-body-inner > div > div.p-body-main > div > div.p-body-pageContent >'
+              ' div > div.block-container > div.block-body > div.structItemContainer > div.structItemContainer-group > div.structItem.structItem'
+              ' > div.structItem-cell.structItem-cell--main > div.structItem-title > a:nth-child(3)',
           ['href']);
 
-      _forumNameList = webScraper.getElement(
-          '#top > div.p-body > div.p-body-inner > div > div.p-body-main > div > div.p-body-pageContent '
-           '> div > div > div.block-body > div > div.structItem.structItem > div.structItem-cell.structItem-cell--main '
-              '> div.structItem-minor > ul > li:nth-child(5) > a',
+      _postTypeList = webScraper.getElement(
+          'div.p-body > div.p-body-inner > div > div.p-body-main > div > div.p-body-pageContent >'
+              ' div > div.block-container > div.block-body > div.structItemContainer > div.structItemContainer-group > div.structItem.structItem'
+              ' > div.structItem-cell.structItem-cell--main > div.structItem-title > a:nth-child(1)',
           ['title']);
 
       setState(() {
@@ -99,9 +98,9 @@ class _XdaScraperState extends State<XdaScraper> {
                               feed: Feed(
                                   data: '',
                                   title: _titleList[index]['title'],
-                                  link: linkUrl +
+                                  link: mainUrl +
                                       _linkList[index]['attributes']['href'],
-                                  forumNameXda: _forumNameList[index]['title']
+                                  forumNameXda: _postTypeList[index]['title']
                               ),//
                             );
                           },
